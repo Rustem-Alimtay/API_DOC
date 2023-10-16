@@ -1,0 +1,204 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: api-specifications
+  description: API specifications repository
+  annotations:
+    backstage.io/techdocs-ref: dir:./
+spec:
+  type: doc
+  lifecycle: draft
+  owner: azt-grl.azp-digital-delivery
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: external-apigee
+  description: external-apigee
+spec:
+  owner: azt-grl.azp-digital-delivery
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: internal-apigee
+  description: internal-apigee
+spec:
+  owner: azt-grl.azp-digital-delivery
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: beneficiary-mgmt
+  description: Beneficiary Management API
+  annotations:
+    backstage.io/techdocs-ref: dir:openapi/beneficiary-mgmt/
+  tags:
+    - sirius
+spec:
+  type: openapi
+  lifecycle: stable
+  owner: azt-grl.azp-digital-delivery
+  system: external-apigee
+  disableRefsResolving: '^#\/components\/.+$'
+  definition:
+    $openapi: ./openapi/beneficiary-mgmt/index.yaml
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: travel-contract-party-mgmt
+  description: Travel Contract Party Management API
+  annotations:
+    backstage.io/techdocs-ref: dir:openapi/travel-contract-party-mgmt/
+  tags:
+    - sirius
+spec:
+  type: openapi
+  lifecycle: stable
+  owner: azt-grl.azp-digital-delivery
+  system: external-apigee
+  disableRefsResolving: '^#\/components\/.+$'
+  definition:
+    $openapi: ./openapi/travel-contract-party-mgmt/index.yaml
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: travel-claims-configuration
+  description: Travel Claims Configuration API
+  annotations:
+    backstage.io/techdocs-ref: dir:openapi/travel-claims-configuration/
+  tags:
+    - vega
+spec:
+  type: openapi
+  lifecycle: stable
+  owner: azt-grl.azp-digital-delivery
+  system: internal-apigee
+  disableRefsResolving: '^#\/components\/.+$'
+  definition:
+    $openapi: ./openapi/travel-claims-configuration/index.yaml
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: rsa-case-mgmt
+  description: RSA Case Management API for Non-Verified Beneficiaries
+  annotations:
+    backstage.io/techdocs-ref: dir:openapi/rsa-case-mgmt/
+  tags:
+    - vega
+spec:
+  type: openapi
+  lifecycle: stable
+  owner: azt-grl.azp-digital-delivery
+  system: external-apigee
+  disableRefsResolving: '^#\/components\/.+$'
+  definition:
+    $openapi: ./openapi/rsa-case-mgmt/index.yaml
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: requests-mgmt
+  description: Requests Management API
+  annotations:
+    backstage.io/techdocs-ref: dir:openapi/requests-mgmt/
+  tags:
+    - vega
+spec:
+  type: openapi
+  lifecycle: stable
+  owner: azt-grl.azp-digital-delivery
+  system: external-apigee
+  disableRefsResolving: '^#\/components\/.+$'
+  definition:
+    $openapi: ./openapi/requests-mgmt/index.yaml
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: app-settings
+  description: App Settings API
+  annotations:
+    backstage.io/techdocs-ref: dir:openapi/app-settings/
+  tags:
+    - sirius
+    - betelgeuse
+spec:
+  type: openapi
+  lifecycle: stable
+  owner: azt-grl.azp-digital-delivery
+  system: internal-apigee
+  disableRefsResolving: '^#\/components\/.+$'
+  definition:
+    $openapi: ./openapi/app-settings/index.yaml
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: token-exchanger
+  description: Token Exchanger API. For NON PRODUCTION usage only
+  annotations:
+    backstage.io/techdocs-ref: dir:openapi/token-exchanger/
+  tags:
+    - df
+spec:
+  type: openapi
+  lifecycle: stable
+  owner: azt-grl.azpdd-digital-fundamentals
+  system: internal-apigee
+  disableRefsResolving: '^#\/components\/.+$'
+  definition:
+    $openapi: ./openapi/token-exchanger/index.yaml
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: file-manager
+  description: File Manager API
+  annotations:
+    backstage.io/techdocs-ref: dir:openapi/file-manager/
+  tags:
+    - df
+spec:
+  type: openapi
+  lifecycle: stable
+  owner: azt-grl.azp-digital-delivery
+  system: external-apigee
+  disableRefsResolving: '^#\/components\/.+$'
+  definition:
+    $openapi: ./openapi/file-manager/index.yaml
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: abs-file-manager-provider
+  description: ABS File Manager Provider API
+  annotations:
+    backstage.io/techdocs-ref: dir:openapi/abs-file-manager-provider/
+  tags:
+    - df
+spec:
+  type: openapi
+  lifecycle: stable
+  owner: azt-grl.azp-digital-delivery
+  system: external-apigee
+  disableRefsResolving: '^#\/components\/.+$'
+  definition:
+    $openapi: ./openapi/abs-file-manager-provider/index.yaml
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: travel-quote-buy
+  description: Travel Quote And Buy
+  annotations:
+    backstage.io/techdocs-ref: dir:openapi/travel-quote-buy/
+  tags:
+    - vega
+spec:
+  type: doc
+  lifecycle: stable
+  owner: azt-grl.azp-digital-delivery
